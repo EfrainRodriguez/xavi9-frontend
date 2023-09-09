@@ -8,7 +8,7 @@ import { Route, Outlet } from "react-router-dom";
 
 import DashboardLayout from "../layouts/DashboardLayout";
 import AuthGuard from "../guards/AuthGuard";
-import UnauthGuard from "../guards/UnauthGuard";
+// import UnauthGuard from "../guards/UnauthGuard";
 
 import { PATH_HOME, PATH_PROFILE, PATH_LOAD_FILES, PATH_AUTH } from "./paths";
 
@@ -47,7 +47,7 @@ export const renderRoutes = (routes: RouteProps[]) => {
 export const routes: RouteProps[] = [
   {
     path: PATH_AUTH.login,
-    guard: UnauthGuard,
+    // guard: UnauthGuard,
     element: lazy(async () => await import("../pages/auth/Login")),
   },
   {
