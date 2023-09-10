@@ -16,8 +16,8 @@ jobs:
           submodules: true
       - name: Create .env file
         run: |
-          echo "VITE_AZURE_ACTIVE_DIRECTORY_CLIENT_ID=581b44a5-978c-4d9c-9de4-d6f1ea63a24a" > .env
-          echo "VITE_AZURE_ACTIVE_DIRECTORY_TENANT_ID=aadc1ebf-7070-451a-a4b6-266306f627fb" >> .env
+          echo "VITE_AZURE_ACTIVE_DIRECTORY_CLIENT_ID=${{ secrets.VITE_AZURE_ACTIVE_DIRECTORY_CLIENT_ID }}" > .env
+          echo "VITE_AZURE_ACTIVE_DIRECTORY_TENANT_ID=${{ secrets.VITE_AZURE_ACTIVE_DIRECTORY_TENANT_ID }}" >> .env
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
