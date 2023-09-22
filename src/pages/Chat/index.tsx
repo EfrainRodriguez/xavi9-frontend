@@ -1,8 +1,15 @@
 import { useState } from "react";
-import { Box, Card, TextField, IconButton } from "@mui/material";
-import { Send } from "@mui/icons-material";
+import { Box, Card, TextField, IconButton, Tooltip } from "@mui/material";
+import { Send, Delete } from "@mui/icons-material";
 
 import ChatMessage from "../../components/chat/ChatMessage";
+
+const initialMessages: ChatMessage[] = [
+  {
+    message: "Hi, I am Xavi9-Bot, How can I help you?",
+    isSender: false,
+  },
+];
 
 interface ChatMessage {
   message: string;
@@ -10,12 +17,7 @@ interface ChatMessage {
 }
 
 const Chat = () => {
-  const [messages, setMessages] = useState<ChatMessage[]>([
-    {
-      message: "Hi, I am Xavi9-Bot, How can I help you?",
-      isSender: false,
-    },
-  ]);
+  const [messages, setMessages] = useState<ChatMessage[]>(initialMessages);
   const [currentMessage, setCurrentMessage] = useState<string>("");
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -36,6 +38,10 @@ const Chat = () => {
     }
   };
 
+  const handleClearChat = () => {
+    setMessages(initialMessages);
+  };
+
   return (
     <Card
       sx={{
@@ -50,11 +56,24 @@ const Chat = () => {
           padding: 2,
         }}
       >
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "end",
+            alignItems: "center",
+          }}
+        >
+          <Tooltip title="Clear Chat" placement="top">
+            <IconButton onClick={handleClearChat}>
+              <Delete />
+            </IconButton>
+          </Tooltip>
+        </Box>
         <Box sx={{ flexGrow: 1 }}>
           <Box
             sx={{
               overflowY: "auto",
-              height: "65vh",
+              maxHeight: "65vh",
               display: "flex",
               flexDirection: "column-reverse",
             }}
@@ -70,9 +89,7 @@ const Chat = () => {
             </Box>
           </Box>
         </Box>
-        <form
-          onSubmit={handleSubmit}
-        >
+        <form onSubmit={handleSubmit}>
           <TextField
             fullWidth
             placeholder="Type your message..."
