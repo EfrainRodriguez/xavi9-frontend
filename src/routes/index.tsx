@@ -10,7 +10,13 @@ import DashboardLayout from "../layouts/DashboardLayout";
 import AuthGuard from "../guards/AuthGuard";
 import UnauthGuard from "../guards/UnauthGuard";
 
-import { PATH_HOME, PATH_PROFILE, PATH_LOAD_FILES, PATH_AUTH } from "./paths";
+import {
+  // PATH_HOME,
+  PATH_PROFILE,
+  PATH_LOAD_FILES,
+  PATH_AUTH,
+  PATH_CHAT,
+} from "./paths";
 
 interface RouteProps {
   path?: string;
@@ -55,10 +61,10 @@ export const routes: RouteProps[] = [
     layout: DashboardLayout,
     guard: AuthGuard,
     children: [
-      {
-        path: PATH_HOME.root,
-        element: lazy(async () => await import("../pages/Home")),
-      },
+      // {
+      //   path: PATH_HOME.root,
+      //   element: lazy(async () => await import("../pages/Home")),
+      // },
       {
         path: PATH_LOAD_FILES.root,
         element: lazy(async () => await import("../pages/LoadFiles")),
@@ -67,6 +73,10 @@ export const routes: RouteProps[] = [
         path: PATH_PROFILE.root,
         element: lazy(async () => await import("../pages/Profile")),
       },
+      {
+        path: PATH_CHAT.root,
+        element: lazy(async () => await import("../pages/Chat")),
+      }
     ],
   },
   // 404

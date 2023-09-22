@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Container } from '@mui/material';
 import { experimentalStyled as styled } from '@mui/material/styles';
 
 import { LAYOUT } from '../../utils/constants';
@@ -19,12 +18,13 @@ const MainStyle = styled('div')(({ theme }) => ({
   flexGrow: 1,
   overflow: 'auto',
   minHeight: '100%',
+  position: 'relative',
   paddingTop: LAYOUT.APPBAR_MOBILE + 16,
-  paddingBottom: theme.spacing(10),
+  paddingBottom: theme.spacing(4),
+  paddingLeft: theme.spacing(2),
+  paddingRight: theme.spacing(2),
   [theme.breakpoints.up('lg')]: {
     paddingTop: LAYOUT.APPBAR_DESKTOP + 8,
-    paddingLeft: theme.spacing(0),
-    paddingRight: theme.spacing(0)
   }
 }));
 
@@ -49,9 +49,7 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
           setOpen(false);
         }}
       />
-      <Container maxWidth="xl">
         <MainStyle>{children}</MainStyle>
-      </Container>
     </RootStyle>
   );
 };

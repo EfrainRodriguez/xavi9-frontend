@@ -1,5 +1,5 @@
-import { Box, Button } from "@mui/material";
-import { useSnackbar } from 'notistack';
+import { Box, Button, Card, CardContent } from "@mui/material";
+import { useSnackbar } from "notistack";
 import { Send } from "@mui/icons-material";
 
 import { useLoadPdfContext } from "./context/load-file.context";
@@ -25,10 +25,10 @@ const LoadFiles = () => {
   const handleUploadFiles = () => {
     sendPdfFiles(dispatch, files)
       .then(() => {
-        enqueueSnackbar('Files uploaded successfully', { variant: 'success' });
+        enqueueSnackbar("Files uploaded successfully", { variant: "success" });
       })
       .catch(() => {
-        enqueueSnackbar('Error uploading files', { variant: 'error' });
+        enqueueSnackbar("Error uploading files", { variant: "error" });
       })
       .finally(() => {
         handleClearFiles();
@@ -36,29 +36,35 @@ const LoadFiles = () => {
   };
 
   return (
-    <>
-      <UploadFile disabled={isLoading} isLoading={isLoading} onChange={handleChangeFiles} />
-      <Box display="flex" justifyContent="center" mt={2}>
-        <Button
-          variant="contained"
-          color="primary"
-          disabled={isLoading || files.length === 0}
-          sx={{ mr: 1 }}
-          endIcon={<Send />}
-          onClick={handleUploadFiles}
-        >
-          Send Files
-        </Button>
-        <Button
-          variant="outlined"
-          color="error"
-          disabled={isLoading || files.length === 0}
-          onClick={handleClearFiles}
-        >
-          Clear
-        </Button>
-      </Box>
-    </>
+    <Card>
+      <CardContent>
+        <UploadFile
+          disabled={isLoading}
+          isLoading={isLoading}
+          onChange={handleChangeFiles}
+        />
+        <Box display="flex" justifyContent="center" mt={2}>
+          <Button
+            variant="contained"
+            color="primary"
+            disabled={isLoading || files.length === 0}
+            sx={{ mr: 1 }}
+            endIcon={<Send />}
+            onClick={handleUploadFiles}
+          >
+            Send Files
+          </Button>
+          <Button
+            variant="outlined"
+            color="error"
+            disabled={isLoading || files.length === 0}
+            onClick={handleClearFiles}
+          >
+            Clear
+          </Button>
+        </Box>
+      </CardContent>
+    </Card>
   );
 };
 

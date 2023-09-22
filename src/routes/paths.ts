@@ -4,6 +4,7 @@ const ROOT_HOME = '/';
 const ROOT_AUTH = '/auth';
 const ROOT_PROFILE = '/profile';
 const ROOT_LOAD_FILES = '/upload-files';
+const ROOT_CHAT = '/chat';
 
 export const PATH_AUTH = {
   root: ROOT_AUTH,
@@ -20,4 +21,8 @@ export const PATH_LOAD_FILES = {
 
 export const PATH_PROFILE = {
   root: ROOT_PROFILE
+};
+
+export const PATH_CHAT = {
+  root: ROOT_CHAT
 };

@@ -1,5 +1,6 @@
 import React from "react";
 import {
+  Chat,
   Home,
   AccountBox,
   DriveFolderUpload,
@@ -7,9 +8,10 @@ import {
 
 // paths
 import {
-  PATH_HOME,
+  // PATH_HOME,
   PATH_PROFILE,
-  PATH_LOAD_FILES
+  PATH_LOAD_FILES,
+  PATH_CHAT
 } from "../../../../../routes/paths";
 
 // ----------------------------------------------------------------------
@@ -24,6 +26,7 @@ export interface SideConfigProps {
 }
 
 const ICONS = {
+  chat: <Chat />,
   home: <Home />,
   profile: <AccountBox />,
   loadFile: <DriveFolderUpload />,
@@ -32,10 +35,15 @@ const ICONS = {
 const sidebarConfig: SideConfigProps[] = [
   {
     items: [
+      // {
+      //   title: "Dashboard",
+      //   icon: ICONS.home,
+      //   href: PATH_HOME.root,
+      // },
       {
-        title: "Dashboard",
-        icon: ICONS.home,
-        href: PATH_HOME.root,
+        title: "Chat",
+        icon: ICONS.chat,
+        href: PATH_CHAT.root,
       },
       {
         title: "Load Files",

@@ -16,7 +16,7 @@ import { KeyboardArrowDown, KeyboardArrowUp } from '@mui/icons-material';
 
 const ListItemStyle = styled(ListItem)(({ theme }) => ({
   ...theme.typography.body2,
-  height: 40,
+  height: 49,
   fontSize: theme.typography.pxToRem(16),
   paddingLeft: theme.spacing(2.5),
   paddingRight: theme.spacing(2.5),
