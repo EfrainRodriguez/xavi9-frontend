@@ -17,7 +17,7 @@ const Chat = () => {
   const [currentMessage, setCurrentMessage] = useState<string>("");
   const [messages, setMessages] = useState([
     {
-      text: "Hello, how can I help you?",
+      text: "Hola, cómo puedo ayudarte?",
       isBot: true,
     },
   ]);
