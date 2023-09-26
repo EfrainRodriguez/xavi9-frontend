@@ -8,7 +8,7 @@ import {
 
 // paths
 import {
-  // PATH_HOME,
+  PATH_HOME,
   PATH_PROFILE,
   PATH_LOAD_FILES,
   PATH_CHAT
@@ -35,11 +35,11 @@ const ICONS = {
 const sidebarConfig: SideConfigProps[] = [
   {
     items: [
-      // {
-      //   title: "Dashboard",
-      //   icon: ICONS.home,
-      //   href: PATH_HOME.root,
-      // },
+      {
+        title: "Dashboard",
+        icon: ICONS.home,
+        href: PATH_HOME.root,
+      },
       {
         title: "Chat",
         icon: ICONS.chat,

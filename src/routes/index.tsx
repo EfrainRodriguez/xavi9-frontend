@@ -11,7 +11,7 @@ import AuthGuard from "../guards/AuthGuard";
 import UnauthGuard from "../guards/UnauthGuard";
 
 import {
-  // PATH_HOME,
+  PATH_HOME,
   PATH_PROFILE,
   PATH_LOAD_FILES,
   PATH_AUTH,
@@ -61,10 +61,10 @@ export const routes: RouteProps[] = [
     layout: DashboardLayout,
     guard: AuthGuard,
     children: [
-      // {
-      //   path: PATH_HOME.root,
-      //   element: lazy(async () => await import("../pages/Home")),
-      // },
+      {
+        path: PATH_HOME.root,
+        element: lazy(async () => await import("../pages/Home")),
+      },
       {
         path: PATH_LOAD_FILES.root,
         element: lazy(async () => await import("../pages/LoadFiles")),
