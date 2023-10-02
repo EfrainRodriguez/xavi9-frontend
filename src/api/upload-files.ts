@@ -6,7 +6,7 @@ export async function uploadPdfApi(files: File[]): Promise<any> {
     formData.append("files", file);
   });
   const response = await axios.post(
-    `https://xavi9backend.azurewebsites.net/api/load-files`,
+    `${import.meta.env.VITE_API_URL}/api/load-files`,
     formData,
     {
       headers: {
